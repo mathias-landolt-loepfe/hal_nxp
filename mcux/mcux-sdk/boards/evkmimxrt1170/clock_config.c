@@ -255,7 +255,7 @@ settings:
 const clock_arm_pll_config_t armPllConfig_BOARD_BootClockRUN =
     {
         .postDivider = kCLOCK_PllPostDiv2,        /* Post divider, 0 - DIV by 2, 1 - DIV by 4, 2 - DIV by 8, 3 - DIV by 1 */
-        .loopDivider = 166,                       /* PLL Loop divider, Fout = Fin * ( loopDivider / ( 2 * postDivider ) ) */
+        .loopDivider = 104,                       /* PLL Loop divider, Fout = Fin * ( loopDivider / ( 2 * postDivider ) ) */
     };
 
 const clock_sys_pll2_config_t sysPll2Config_BOARD_BootClockRUN =
