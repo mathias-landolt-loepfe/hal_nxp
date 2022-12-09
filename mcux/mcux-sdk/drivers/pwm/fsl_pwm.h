@@ -411,7 +411,25 @@ extern "C" {
  * @name Initialization and deinitialization
  * @{
  */
+static PWM_Type *const s_pwmBases[] = PWM_BASE_PTRS;
 
+static uint32_t PWM_GetInstance(PWM_Type *base)
+{
+    uint32_t instance;
+
+    /* Find the instance index from base address mappings. */
+    for (instance = 0; instance < ARRAY_SIZE(s_pwmBases); instance++)
+    {
+        if (s_pwmBases[instance] == base)
+        {
+            break;
+        }
+    }
+
+    assert(instance < ARRAY_SIZE(s_pwmBases));
+
+    return instance;
+}
 /*!
  * @brief Ungates the PWM submodule clock and configures the peripheral for basic operation.
  *
